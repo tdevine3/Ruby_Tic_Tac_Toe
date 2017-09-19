@@ -19,9 +19,11 @@ class App_test < Minitest::Test
   end
   
   def test_choose_memory
-    memories=[Memory.new(1,2), Memory.new(-1,1)]
-    assert_equal(Memory.new(-1,1), choose_memory(memories, 2))
-    a1sert_equal(Memory.new(1,2), choose_memory(memories, 1))
+    memory1 = Memory.new(1,2)
+    memory2 = Memory.new(-1,1)
+    memories = [memory1, memory2]
+    assert_equal(memory2, choose_memory(memories, 2))
+    assert_equal(memory1, choose_memory(memories, 1))
   end
   
   def test_get_score
