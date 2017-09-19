@@ -1,14 +1,16 @@
 def think(state)
   memories = []
+  if state.count(0) == 0 then return Memory.new(get_score(state), nil); end
   state.each_with_index do |square, index|
     if square != 0
       next
     end
     thinking_state = state.dup
     thinking_state[index] = turn(thinking_state)
-    memories.push(think(thinking_state))
-  end  
-  
+    new_memory = think(thinking_state)
+    new_memory.square = square
+    memories.push(new_memory)
+  end
   return choose_memory(memories, turn(state))
 end
 
@@ -21,5 +23,13 @@ def turn(state)
 end
 
 def choose_memory(memories, player)
-    memory = Memory.new
+    if player == 1
+      return memories.max_by {|memory| memory.score}
+    else
+      return memories.min_by {|memory| memory.score}
+    end
+end
+
+def get_score(state)
+  
 end

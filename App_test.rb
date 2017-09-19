@@ -24,4 +24,13 @@ class App_test < Minitest::Test
     a1sert_equal(Memory.new(1,2), choose_memory(memories, 1))
   end
   
+  def test_get_score
+    state1 = [1, 2, 1, 0, 2, 1, 0, 2, 0] # O wins
+    state2 = [1, 2, 1, 2, 1, 1, 2, 1, 2] # tie
+    state3 = [1, 1, 1, 2, 1, 2, 2, 2, 1] # X wins and full board
+    assert_equal(-4, get_score(state1))    
+    assert_equal(0, get_score(state2))    
+    assert_equal(1, get_score(state3))    
+  end
+  
 end
