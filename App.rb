@@ -31,5 +31,9 @@ def choose_memory(memories, player)
 end
 
 def get_score(state)
+  (get_winner(state)*(-2)+3)*(1+state.count(0))  
+end
+
+def get_winner(state)
   
 end
