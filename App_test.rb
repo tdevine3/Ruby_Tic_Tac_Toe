@@ -5,8 +5,10 @@ require_relative "Memory.rb"
 class App_test < Minitest::Test
   
   def test_think
-      state = [1, 2, 1, 0, 2, 1, 0, 0, 0]
-      assert_equal(7, think(state).square)
+      state1 = [1, 2, 1, 0, 2, 1, 0, 0, 0]
+      state2 = [1, 1, 0, 2, 2, 1, 1, 2, 2]
+      assert_equal(2, think(state2).square)
+      assert_equal(7, think(state1).square)
   end
   
   def test_turn
@@ -22,8 +24,8 @@ class App_test < Minitest::Test
     memory1 = Memory.new(1,2)
     memory2 = Memory.new(-1,1)
     memories = [memory1, memory2]
-    assert_equal(memory2, choose_memory(memories, 2))
     assert_equal(memory1, choose_memory(memories, 1))
+    assert_equal(memory2, choose_memory(memories, 2))
   end
   
   def test_get_score

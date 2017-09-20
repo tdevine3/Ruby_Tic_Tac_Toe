@@ -5,10 +5,10 @@ def think(state)
     if square != 0
       next
     end
-    thinking_state = state.dup
-    thinking_state[index] = turn(thinking_state)
+    thinking_state = state.clone
+    thinking_state[index] = turn(state)
     new_memory = think(thinking_state)
-    new_memory.square = square
+    new_memory.square = index
     memories.push(new_memory)
   end
   return choose_memory(memories, turn(state))
