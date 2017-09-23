@@ -58,5 +58,9 @@ end
 }
 
 def get_mark(state)
-  
+  if turn(state) == 1
+    return "x_mark"
+  else
+    return "o_mark"
+  end
 end
