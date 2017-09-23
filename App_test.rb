@@ -68,8 +68,8 @@ class App_test < Minitest::Test
     assert_equal("o_mark",$marks[7])
     $state = [1, 2, 0, 0, 1, 0, 0, 0, 2]
     opponent_move
-    assert_equal(1, $state[6])
-    assert_equal("x_mark",$marks[6]) 
+    assert_equal(1, $state[3])
+    assert_equal("x_mark",$marks[3]) 
   end
   
 end

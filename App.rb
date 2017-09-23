@@ -73,5 +73,8 @@ def get_mark(square)
 end
 
 def opponent_move
-
+  thought = think($state)
+  square = thought.square
+  $state[square] = turn($state)
+  $marks[square] = get_mark($state[square])
 end
