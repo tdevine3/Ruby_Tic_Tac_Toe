@@ -50,4 +50,9 @@ class App_test < Minitest::Test
     assert_equal(1, get_winner(state4))
   end
   
+  def test_get_mark
+    state1 = [1, 2, 1, 0, 2, 1, 0, 2, 0]
+    assert_equal("x_mark",get_mark(state1))
+  end
+  
 end
