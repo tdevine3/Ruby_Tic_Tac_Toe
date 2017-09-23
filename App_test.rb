@@ -5,10 +5,12 @@ require_relative "Memory.rb"
 class App_test < Minitest::Test
   
   def test_think
-      state1 = [1, 2, 1, 0, 2, 1, 0, 0, 0]
-      state2 = [1, 1, 0, 2, 2, 1, 1, 2, 2]
-      assert_equal(2, think(state2).square)
-      assert_equal(7, think(state1).square)
+      state1 = [1, 1, 0, 2, 2, 1, 1, 2, 2]
+      state2 = [1, 2, 1, 0, 2, 1, 0, 0, 0]
+      state3 = [1, 2, 0, 0, 1, 0, 0, 0, 2]
+      assert_equal(2, think(state1).square)
+      assert_equal(7, think(state2).square)
+      assert_equal(3, think(state3).square)
   end
   
   def test_turn
