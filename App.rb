@@ -1,5 +1,7 @@
 require 'sinatra'
-$state = Array.new(9,"blank_mark")
+$marks = Array.new(9,"blank_mark")
+$state = Array.new(9,0)
+
 
 def think(state)
   memories = []
@@ -52,7 +54,7 @@ end
 
 (0...9).each {|square|
   get '/click' + square.to_s do
-    $state[square] = "x_mark"
+    $marks[square] = get_mark($state)
     redirect '/'
   end
 }
