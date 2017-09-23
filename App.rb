@@ -59,10 +59,14 @@ end
   end
 }
 
-def get_mark(state)
-  if turn(state) == 1
+def get_mark(square)
+  if square == 1
     return "x_mark"
   else
-    return "o_mark"
+    if square == 2
+      return "o_mark"
+    else
+      return "blank_mark"
+    end
   end
 end

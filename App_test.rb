@@ -51,9 +51,9 @@ class App_test < Minitest::Test
   end
   
   def test_get_mark
-    assert_equal("blank_mark",0)
-    assert_equal("x_mark",1)
-    assert_equal("o_mark",2)
+    assert_equal("blank_mark",get_mark(0))
+    assert_equal("x_mark",get_mark(1))
+    assert_equal("o_mark",get_mark(2))
   end
   
 end
