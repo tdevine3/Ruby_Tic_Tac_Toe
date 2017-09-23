@@ -56,4 +56,20 @@ class App_test < Minitest::Test
     assert_equal("o_mark",get_mark(2))
   end
   
+  def test_opponent_move
+    $marks = []
+    $state = [1, 1, 0, 2, 2, 1, 1, 2, 2]
+    opponent_move
+    assert_equal(1, $state[2])
+    assert_equal("x_mark",$marks[2])
+    $state = [1, 2, 1, 0, 2, 1, 0, 0, 0]
+    opponent_move
+    assert_equal(2, $state[7])
+    assert_equal("o_mark",$marks[7])
+    $state = [1, 2, 0, 0, 1, 0, 0, 0, 2]
+    opponent_move
+    assert_equal(1, $state[6])
+    assert_equal("x_mark",$marks[6]) 
+  end
+  
 end
