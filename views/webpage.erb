@@ -1,23 +1,39 @@
 <style> 
 .grid_class {
-	--square_size: 125px;
+	--square_size: 123px;
 	grid-template-columns: repeat(3, var(--square_size));
 	grid-template-rows: repeat(3, var(--square_size));
 	background-image: url("Background.png");
 	background-repeat: no-repeat;
 	display: grid;
-	grid-gap: 10px;
+	grid-gap: 8px;
+}
+.x_mark {
+	background-image: url("X.png");
+	position: relative;
+	top: 3px;
+	left: 2px;
+	height: var(--square_size);
+}
+.o_mark {
+	background-image: url("O.png");
+	position: relative;
+	top: 3px;
+	left: 2px;
+	height: var(--square_size);
+}
+.blank_mark {
 }
 </style>
 	
 <div class = "grid_class">
-	<div> 1 </div>
-	<div> 2 </div>
-	<div> 3 </div>
-	<div> 4 </div>
-	<div> 5 </div>
-	<div> 6 </div>
-	<div> 7 </div>
-	<div> 8 </div>
-	<div> 9 </div>
+	<a href="click0"><div class = <%=$box[0]%>> </div> </a>
+	<a href="click1"><div class = <%=$box[1]%>> </div> </a>
+	<a href="click2"><div class = <%=$box[2]%>> </div> </a>
+	<a href="click3"><div class = <%=$box[3]%>> </div> </a>
+	<a href="click4"><div class = <%=$box[4]%>> </div> </a>
+	<a href="click5"><div class = <%=$box[5]%>> </div> </a>
+	<a href="click6"><div class = <%=$box[6]%>> </div> </a>
+	<a href="click7"><div class = <%=$box[7]%>> </div> </a>
+	<a href="click8"><div class = <%=$box[8]%>> </div> </a>
 </div>

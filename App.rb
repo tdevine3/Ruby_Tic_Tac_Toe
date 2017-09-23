@@ -1,7 +1,7 @@
-#require "sinatra"
 require 'sinatra'
 set :port, 4567
 set :bind, '0.0.0.0'
+$box = Array.new(9,"blank_mark")
 
 def think(state)
   memories = []
@@ -51,3 +51,10 @@ end
 get '/' do
   erb :webpage
 end
+
+(0...9).each {|square|
+  get '/click' + square.to_s do
+    $box[square] = "x_mark"
+    redirect '/'
+  end
+}
