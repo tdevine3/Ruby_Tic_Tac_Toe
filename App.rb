@@ -1,3 +1,8 @@
+#require "sinatra"
+require 'sinatra'
+set :port, 4567
+set :bind, '0.0.0.0'
+
 def think(state)
   memories = []
   if state.count(0) == 0 then return Memory.new(get_score(state), nil); end
@@ -41,4 +46,9 @@ def get_winner(state)
     end
   end
   return 1.5
+end
+
+get '/' do
+  erb :webpage
+  # "hello"
 end
