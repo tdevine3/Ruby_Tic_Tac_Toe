@@ -78,3 +78,7 @@ def opponent_move
   $state[square] = turn($state)
   $marks[square] = get_mark($state[square])
 end
+
+def player_move(square)
+  
+end

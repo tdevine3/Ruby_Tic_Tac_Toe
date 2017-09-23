@@ -62,14 +62,28 @@ class App_test < Minitest::Test
     opponent_move
     assert_equal(1, $state[2])
     assert_equal("x_mark",$marks[2])
+    
     $state = [1, 2, 1, 0, 2, 1, 0, 0, 0]
     opponent_move
     assert_equal(2, $state[7])
     assert_equal("o_mark",$marks[7])
+    
     $state = [1, 2, 0, 0, 1, 0, 0, 0, 2]
     opponent_move
     assert_equal(1, $state[3])
     assert_equal("x_mark",$marks[3]) 
   end
   
+  def test_player_move
+    $marks = []
+    $state = [1, 1, 0, 2, 2, 1, 1, 2, 2]
+    player_move(2)
+    assert_equal(1, $state[2])
+    assert_equal("x_mark",$marks[2])
+    
+    $state = [1, 2, 1, 0, 2, 1, 0, 0, 0] #try to move 0 into an illegal location
+    player_move(0)
+    assert_equal(1, $state[0])
+    assert_equal("x_mark",$marks[0])
+  end
 end
