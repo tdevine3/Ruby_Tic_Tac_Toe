@@ -1,11 +1,14 @@
 <style> 
-
 .grid_class {
-	grid-template-columns: 100px 100px 100px;
+	--square_size: 125px;
+	grid-template-columns: repeat(3, var(--square_size));
+	grid-template-rows: repeat(3, var(--square_size));
+	background-image: url("Background.png");
+	background-repeat: no-repeat;
 	display: grid;
 	grid-gap: 10px;
 }
-	</style>
+</style>
 	
 <div class = "grid_class">
 	<div> 1 </div>
@@ -14,4 +17,7 @@
 	<div> 4 </div>
 	<div> 5 </div>
 	<div> 6 </div>
+	<div> 7 </div>
+	<div> 8 </div>
+	<div> 9 </div>
 </div>

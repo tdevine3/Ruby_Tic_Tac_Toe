@@ -50,5 +50,4 @@ end
 
 get '/' do
   erb :webpage
-  # "hello"
 end
