@@ -54,8 +54,6 @@ end
 
 (0...9).each {|square|
   get '/click' + square.to_s do
-    $state[square] = turn($state)
-    $marks[square] = get_mark($state[square])
     redirect '/'
   end
 }
@@ -80,5 +78,8 @@ def opponent_move
 end
 
 def player_move(square)
-  
+  if $state[square] == 0
+    $state[square] = turn($state)
+    $marks[square] = get_mark($state[square])
+  end
 end

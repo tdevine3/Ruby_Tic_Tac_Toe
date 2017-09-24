@@ -82,6 +82,7 @@ class App_test < Minitest::Test
     assert_equal("x_mark",$marks[2])
     
     $state = [1, 2, 1, 0, 2, 1, 0, 0, 0] #try to move 0 into an illegal location
+    $marks[0] = "x_mark"
     player_move(0)
     assert_equal(1, $state[0])
     assert_equal("x_mark",$marks[0])
