@@ -95,6 +95,10 @@ def turn_wrapper(square)
   end
 end
 
+def reset
+
+end
+
 (0...9).each {|square|
   get '/click' + square.to_s do
     turn_wrapper(square)

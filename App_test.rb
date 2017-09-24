@@ -116,4 +116,12 @@ class App_test < Minitest::Test
     assert_equal(original_state, $state)
     assert_equal([],$marks)
   end
+  
+  def test_reset
+    $marks = []
+    $state = []
+    reset
+    assert_equal(Array.new(9,"blank_mark"),$marks)
+    assert_equal(Array.new(9,0), $state)
+  end
 end
