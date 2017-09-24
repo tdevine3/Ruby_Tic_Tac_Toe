@@ -2,7 +2,7 @@ require 'sinatra'
 require_relative 'Memory.rb'
 $marks = Array.new(9,"blank_mark")
 $state = Array.new(9,0)
-
+$message = ''
 
 def think(state)
   memories = []
@@ -96,7 +96,8 @@ def turn_wrapper(square)
 end
 
 def reset
-
+  $marks = Array.new(9,"blank_mark")
+  $state = Array.new(9,0)
 end
 
 (0...9).each {|square|
@@ -110,11 +111,13 @@ end
 }
 
 get '/end' do
-  message = ''
+  $message = ''
   winner = get_winner($state)
-  message = 'X Wins' if winner == 1
-  message = 'O Wins' if winner == 2
-  message = 'Tie Game' if winner == 1.5
-  return message
+  $message = 'X Wins' if winner == 1
+  $message = 'O Wins' if winner == 2
+  $message = 'Tie Game' if winner == 1.5
+  reset
+  # return message
+  erb :end
 end
 
