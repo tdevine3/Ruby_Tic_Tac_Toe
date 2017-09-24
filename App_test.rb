@@ -87,4 +87,21 @@ class App_test < Minitest::Test
     assert_equal(1, $state[0])
     assert_equal("x_mark",$marks[0])
   end
+  
+  def test_turn_wrapper
+    $marks = []
+    $state = [1, 1, 2, 0, 1, 0, 0, 2, 2]
+    turn_wrapper(5)
+    assert_equal(1,$state[5])
+    assert_equal(0,$state[6])
+    assert_equal("x_mark", $marks[5])
+    assert_equal("o_mark", $marks[6])
+    
+    $marks = []
+    $state = [1, 1, 2, 0, 1, 0, 0, 2, 2]
+    original_state = $state.dup 
+    turn_wrapper(2)
+    assert_equals(original_state, $state)
+    assert_equals([],$marks)
+  end
 end

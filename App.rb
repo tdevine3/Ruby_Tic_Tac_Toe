@@ -1,4 +1,5 @@
 require 'sinatra'
+require_relative 'Memory.rb'
 $marks = Array.new(9,"blank_mark")
 $state = Array.new(9,0)
 
@@ -52,12 +53,6 @@ get '/' do
   erb :webpage
 end
 
-(0...9).each {|square|
-  get '/click' + square.to_s do
-    redirect '/'
-  end
-}
-
 def get_mark(square)
   if square == 1
     return "x_mark"
@@ -81,5 +76,19 @@ def player_move(square)
   if $state[square] == 0
     $state[square] = turn($state)
     $marks[square] = get_mark($state[square])
+    return true
   end
+  return false
 end
+
+def turn_wrapper(square)
+
+end
+
+(0...9).each {|square|
+  get '/click' + square.to_s do
+    player_move(square)
+    #turn_wrapper(square)
+    redirect '/'
+  end
+}
