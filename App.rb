@@ -46,7 +46,7 @@ end
 
 def get_winner(state)
   [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]].each do |winning_combination|
-    if state[winning_combination[0]] == state[winning_combination[1]] && state[winning_combination[0]] == state[winning_combination[2]]
+    if state[winning_combination[0]] == state[winning_combination[1]] && state[winning_combination[0]] == state[winning_combination[2]] && state[winning_combination[0]] != 0
       return state[winning_combination[0]]
     end
   end
