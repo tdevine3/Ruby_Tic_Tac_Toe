@@ -90,7 +90,7 @@ end
 
 def turn_wrapper(square)
   valid_move = player_move(square)
-  if valid_move
+  if valid_move && get_winner($state) == 0
     opponent_move
   end
 end
@@ -98,6 +98,19 @@ end
 (0...9).each {|square|
   get '/click' + square.to_s do
     turn_wrapper(square)
+    if get_winner($state) != 0
+      redirect '/end'
+    end
     redirect '/'
   end
 }
+
+get '/end' do
+  message = ''
+  winner = get_winner($state)
+  message = 'X Wins' if winner == 1
+  message = 'O Wins' if winner == 2
+  message = 'Tie Game' if winner == 1.5
+  return message
+end
+
