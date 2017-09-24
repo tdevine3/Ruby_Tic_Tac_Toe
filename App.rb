@@ -82,14 +82,15 @@ def player_move(square)
 end
 
 def turn_wrapper(square)
-  if player_move(square)
+  valid_move = player_move(square)
+  if valid_move
     opponent_move
   end
 end
 
 (0...9).each {|square|
   get '/click' + square.to_s do
-    player_move(square)
+    turn_wrapper(square)
     redirect '/'
   end
 }

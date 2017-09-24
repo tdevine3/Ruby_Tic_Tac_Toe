@@ -8,9 +8,12 @@ class App_test < Minitest::Test
       state1 = [1, 1, 0, 2, 2, 1, 1, 2, 2]
       state2 = [1, 2, 1, 0, 2, 1, 0, 0, 0]
       state3 = [1, 2, 0, 0, 1, 0, 0, 0, 2]
+      state4 = [1, 1, 2, 0, 1, 1, 0, 2, 2]
+
       assert_equal(2, think(state1).square)
       assert_equal(7, think(state2).square)
       assert_equal(3, think(state3).square)
+      assert_equal(6, think(state4).square)
   end
   
   def test_turn
@@ -72,6 +75,10 @@ class App_test < Minitest::Test
     opponent_move
     assert_equal(1, $state[3])
     assert_equal("x_mark",$marks[3]) 
+    
+    $state = [1, 1, 2, 0, 1, 1, 0, 2, 2]
+    opponent_move
+    assert_equal(2, $state[6])
   end
   
   def test_player_move
@@ -93,8 +100,9 @@ class App_test < Minitest::Test
     $state = [1, 1, 2, 0, 1, 0, 0, 2, 2]
     turn_wrapper(5)
     assert_equal(1,$state[5])
-    assert_equal(0,$state[6])
+    assert_equal(2,$state[6])
     assert_equal("x_mark", $marks[5])
+    assert_equal("o_mark", $marks[6])
     
     $marks = []
     $state = [1, 1, 2, 0, 1, 0, 0, 2, 2]
