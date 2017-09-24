@@ -6,6 +6,10 @@ $state = Array.new(9,0)
 
 def think(state)
   memories = []
+  winner = get_winner(state)
+  if winner != 0
+    return Memory.new(get_score(state), nil)
+  end
   if state.count(0) == 0 then return Memory.new(get_score(state), nil); end
   state.each_with_index do |square, index|
     if square != 0
@@ -45,6 +49,9 @@ def get_winner(state)
     if state[winning_combination[0]] == state[winning_combination[1]] && state[winning_combination[0]] == state[winning_combination[2]]
       return state[winning_combination[0]]
     end
+  end
+  if state.count(0) != 0
+    return 0
   end
   return 1.5
 end

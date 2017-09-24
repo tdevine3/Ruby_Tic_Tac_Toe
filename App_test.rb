@@ -9,11 +9,13 @@ class App_test < Minitest::Test
       state2 = [1, 2, 1, 0, 2, 1, 0, 0, 0]
       state3 = [1, 2, 0, 0, 1, 0, 0, 0, 2]
       state4 = [1, 1, 2, 0, 1, 1, 0, 2, 2]
+      state5 = [0, 0, 2, 0, 0, 0, 1, 0, 1]
 
       assert_equal(2, think(state1).square)
       assert_equal(7, think(state2).square)
       assert_equal(3, think(state3).square)
       assert_equal(6, think(state4).square)
+      assert_equal(7, think(state5).square)
   end
   
   def test_turn
