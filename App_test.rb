@@ -50,6 +50,7 @@ class App_test < Minitest::Test
     state3 = [1, 1, 1, 2, 1, 2, 2, 2, 1] # X wins and full board
     state4 = [2, 0, 1, 2, 1, 0, 1, 0, 0] # diagonal test
     state5 = [2, 0, 1, 2, 1, 0, 0, 0, 0] # no winner
+    state6 = [2, 0, 1, 2, 0, 1, 0, 0, 1] # x wins and 3 blanks in a row
     assert_equal(2, get_winner(state1))
     assert_equal(1.5, get_winner(state2)) 
     assert_equal(1, get_winner(state3))
