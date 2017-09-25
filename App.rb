@@ -117,7 +117,26 @@ get '/end' do
   $message = 'O Wins' if winner == 2
   $message = 'Tie Game' if winner == 1.5
   reset
-  # return message
   erb :end
 end
+
+get '/switch_player' do
+  if get_winner($state) == 0
+    if $state.count(0) == 9
+      player_move(4)
+    else
+      opponent_move
+    end
+    if get_winner($state) != 0
+      redirect '/end'
+    else
+      redirect '/'
+    end  
+  else
+    redirect '/end'
+  end
+end
+
+
+
 
